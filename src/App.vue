@@ -1,9 +1,17 @@
-<template> </template>
+<template>
+  <div>
+    <it-main-wrapper></it-main-wrapper>
+  </div>
+</template>
 
 <script>
+import itMainWrapper from "./components/it-main-wrapper.vue";
+
 export default {
   name: "App",
-  components: {},
+  components: {
+    itMainWrapper,
+  },
 };
 </script>
 
