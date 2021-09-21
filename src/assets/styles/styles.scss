@@ -1,1 +1,28 @@
+@import "nullstyle.scss";
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Roboto:wght@300;400&display=swap");
+
 $accentColor: #67A513;
+$darkColor:  #343945;
+$textColor: #616979;
+$greyColor: #B1B4BA;
+$lightnessColor: #F2F5F7;
+$whiteColor: #FFF;
+
+$base_HD: 1216px;
+$base_1000: 1000px;
+$base__768: 768px;
+$base__420: 420px;
+
+@mixin mainFont {
+font-family: 'Ubuntu', sans-serif;
+} 
+
+@mixin secondFont {
+font-family: 'Roboto', sans-serif;
+	} 
+
+.container {
+	padding: 0px 20px;
+	max-width: 1216px;
+	margin: 0px auto;
+}

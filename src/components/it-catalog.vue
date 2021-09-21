@@ -1,8 +1,10 @@
 <template>
-  <div class="catalog">
-    <it-catalog-item></it-catalog-item>
-    <it-catalog-item></it-catalog-item>
-    <it-catalog-item></it-catalog-item>
+  <div class="container">
+    <div class="catalog">
+      <it-catalog-item></it-catalog-item>
+      <it-catalog-item></it-catalog-item>
+      <it-catalog-item></it-catalog-item>
+    </div>
   </div>
 </template>
 
@@ -16,4 +18,8 @@ export default {
   },
 };
 </script>
-<style lang="scss"></style>
+<style lang="scss">
+.catalog {
+  display: flex;
+}
+</style>
