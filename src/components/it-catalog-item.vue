@@ -1,7 +1,11 @@
 <template>
   <div class="item">
     <div class="item__picture">
-      <img class="picture-item" src="../img/photo.png" alt="" />
+      <img
+        class="picture-item"
+        :src="require('../img/' + product_data.img + '.png')"
+        alt="../img/no-image.jpg"
+      />
     </div>
     <div class="item__sale">скидка на комплект</div>
     <div class="item__rating">
@@ -23,11 +27,13 @@
             </g></svg
         ></span>
       </div>
-      <div class="item__stars"><span>4.9</span></div>
-      <div class="item__reviews">13 отзывов</div>
+      <div class="item__stars">
+        <span>{{ product_data.rating }}</span>
+      </div>
+      <div class="item__reviews">отзывов: {{ product_data.reviews }}</div>
     </div>
-    <div class="item__title">Принтер Brother MFC-1123</div>
-    <div class="item__details">чёрный, А4</div>
+    <div class="item__title">{{ product_data.title }}</div>
+    <div class="item__details">{{ product_data.details }}</div>
     <div class="item__status">
       <div class="item__status-icon">
         <span
@@ -55,8 +61,8 @@
       <span>в наличии</span>
     </div>
     <div class="item__price-section">
-      <div class="item__price">32 999 руб.</div>
-      <button class="add"><span>+</span></button>
+      <div class="item__price">{{ product_data.price }} руб.</div>
+      <button class="add" @click="sendDataToParent"><span>+</span></button>
     </div>
   </div>
 </template>
@@ -64,6 +70,19 @@
 <script>
 export default {
   name: "it-catalog-item",
+  props: {
+    product_data: {
+      type: Object,
+      default() {
+        return {};
+      },
+    },
+  },
+  methods: {
+    sendDataToParent() {
+      this.$emit("sendId", this.product_data.id);
+    },
+  },
 };
 </script>
 
@@ -72,6 +91,7 @@ export default {
   width: 290px;
   height: 445px;
   background-color: #f2f5f7;
+  margin-top: 20px;
   margin-left: 20px;
   position: relative;
   display: flex;
@@ -113,6 +133,7 @@ export default {
   }
   &__title {
     align-self: flex-start;
+    text-align: left;
     @include mainFont;
     color: &darkColor;
     font-weight: 700;
@@ -149,10 +170,6 @@ export default {
     font-size: 24px;
     line-height: 140%;
   }
-}
-
-.item:first-child {
-  margin-left: 0;
 }
 
 .add {
